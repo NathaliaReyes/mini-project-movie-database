@@ -8,9 +8,7 @@ const app = express();
 // Express Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use('/api', api);
 
-app.use(express.static('public'));
 
 // Connect to the database:
 const pool = new Pool(
@@ -25,15 +23,18 @@ const pool = new Pool(
 
 pool.connect();
 
-// movies.get('/movies', (req, res) => {
-//     pool.query('SELECT * FROM movies', (err, res) => {
-//         if(err) {
-//             throw err;
-//         } else{
-//             console.log(res.rows);
-//         }
-//     })
-// })
+app.get('/api/movies', (req, res) => {
+    pool.query('SELECT id, nombre AS title FROM movies', (err, { rows }) => {
+        if(err) {
+            throw err;
+            return;
+        } 
+        res.json({
+            message: 'success!!',
+            data: rows
+        });
+    });
+});
 
 
 app.use((req, res) => {
