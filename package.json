@@ -1,15 +1,17 @@
 {
-    "name": "mini-project",
+    "name": "main",
     "version": "1.0.0",
     "description": "Using pg",
     "main": "server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node server.js"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
       "express": "^4.17.1",
+      "jshint": "^2.12.0",
       "pg": "^8.11.3"
     }
   }
