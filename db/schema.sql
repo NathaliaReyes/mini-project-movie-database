@@ -12,5 +12,5 @@ CREATE TABLE reviews(
     id SERIAL PRIMARY KEY,
     review TEXT NOT NULL,
     movie_id INTEGER NOT NULL,
-    FOREIGN KEY (movie_id) REFERENCES movies(id)
+    FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE SET NULL
 );
